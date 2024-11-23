@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Uppercase and Lowercase</title>
+</head>
+<body>
+    <h1>String Case Converter</h1>
+    <form id="stringForm">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    <h2>Results:</h2>
+    <p id="uppercase"></p>
+    <p id="lowercase"></p>
+
+    <script>
+        // Attach event listener to the form
+        document.getElementById("stringForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+            // Get the input value
+            const inputString = document.getElementById("inputString").value;
+
+            // Convert to uppercase and lowercase
+            const uppercaseString = inputString.toUpperCase();
+            const lowercaseString = inputString.toLowerCase();
+
+            // Display the results
+            document.getElementById("uppercase").textContent = "Uppercase: " + uppercaseString;
+            document.getElementById("lowercase").textContent = "Lowercase: " + lowercaseString;
+        });
+    </script>
+</body>
+</html>

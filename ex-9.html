@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #collegeParagraph {
+            font-size: 16px;
+            color: black;
+            line-height: 1.6;
+        }
+
+        #collegeParagraph b:hover {
+            color: red;
+            background-color: yellow;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Our College</h1>
+    <p id="collegeParagraph">
+        Welcome to <b>Greenfield College</b>, a premier institution known for its <b>academic excellence</b> 
+        and <b>state-of-the-art facilities</b>. Our college is dedicated to nurturing the talents of our 
+        students and preparing them for a <b>bright future</b>.
+    </p>
+    <form onsubmit="changeParagraphStyle(event)">
+        <button type="submit">Change</button>
+    </form>
+
+    <script>
+        function changeParagraphStyle(event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+
+            // Select the paragraph
+            const paragraph = document.getElementById('collegeParagraph');
+
+            // Change the style of the paragraph
+            paragraph.style.fontFamily = 'Georgia, serif';
+            paragraph.style.fontSize = '20px';
+            paragraph.style.color = 'darkgreen';
+        }
+    </script>
+</body>
+</html>

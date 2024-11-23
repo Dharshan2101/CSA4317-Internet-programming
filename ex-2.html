@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Area</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-rows: 100px 100px 100px; /* Defines three rows of equal height */
+            grid-template-columns: 100px 100px 100px; /* Defines three columns of equal width */
+            gap: 10px; /* Adds spacing between grid items */
+        }
+
+        .grid-item {
+            background-color: #d3d3d3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #999;
+        }
+
+        .highlighted {
+            background-color: #4CAF50; /* Highlighted area with green background */
+            grid-row: span 2; /* Spans two rows */
+            grid-column: span 2; /* Spans two columns */
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid Area Example</h1>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item highlighted">Highlighted Area</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

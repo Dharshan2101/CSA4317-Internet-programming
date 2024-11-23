@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Image Size</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Image Size</h1>
+    <p>Select an image to display its dimensions:</p>
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="imageContainer">
+        <img id="selectedImage" src="" alt="Selected Image" style="display:none;">
+    </div>
+    <div class="info" id="imageSize"></div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const selectedImage = document.getElementById('selectedImage');
+        const imageSize = document.getElementById('imageSize');
+
+        imageInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Set the image source
+                    selectedImage.src = e.target.result;
+                    selectedImage.style.display = "block";
+
+                    // Wait for the image to load to get its dimensions
+                    selectedImage.onload = function () {
+                        const height = selectedImage.naturalHeight;
+                        const width = selectedImage.naturalWidth;
+                        imageSize.textContent = `Image Dimensions: Width = ${width}px, Height = ${height}px`;
+                    };
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                imageSize.textContent = "No image selected.";
+                selectedImage.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create and Append Error Element</title>
+    <style>
+        /* Style for the error message */
+        .error-message {
+            color: red;
+            background-color: yellow;
+            padding: 10px;
+            margin-top: 20px;
+            border: 2px solid red;
+            font-weight: bold;
+            width: fit-content;
+            text-align: center;
+        }
+
+        /* Button style */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Error Message</h1>
+    <button id="generateErrorButton">Generate Error Message</button>
+
+    <script>
+        // Function to create and append the error message
+        document.getElementById('generateErrorButton').addEventListener('click', function() {
+            // Create a new div element
+            const errorDiv = document.createElement('div');
+
+            // Add the error message text to the div
+            errorDiv.textContent = "Error! Filename not specified.";
+
+            // Add a class to the div for styling
+            errorDiv.classList.add('error-message');
+
+            // Append the error message to the body of the document
+            document.body.appendChild(errorDiv);
+        });
+    </script>
+</body>
+</html>
